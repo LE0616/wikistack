@@ -7,10 +7,11 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "public"));
 
 app.get("/", (req, res, next) => {
-  res.send("hello world!");
+  res.send(`<body>hello world!</body>`);
+  next();
 });
 
-const PORT = 1337;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Now listening on port ${PORT}...`);
