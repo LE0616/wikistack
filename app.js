@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const { db } = require("./models");
 
 const app = express();
 
@@ -15,4 +16,8 @@ const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Now listening on port ${PORT}...`);
+});
+
+db.authenticate().then(() => {
+  console.log("connected to the database");
 });
